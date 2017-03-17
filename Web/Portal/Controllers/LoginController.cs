@@ -69,7 +69,7 @@ namespace DinoNotes.Web.Portal.Controllers {
             if (Url.IsLocalUrl(returnUrl)) {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Dashboard");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult LogOut(string returnUrl) {

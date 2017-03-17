@@ -1,0 +1,7 @@
+.main-panel > .content {
+  min-height: calc(100% - 125px);
+}
+
+.footer {
+  padding: 0;
+}

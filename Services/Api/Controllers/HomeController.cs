@@ -13,5 +13,11 @@ namespace DinoNotes.Services.Api.Controllers {
             return "DinoNotes API - v1.0";
         }
 
+        [Authorize]
+        [AcceptVerbs("GET")]
+        public string About() {
+            return "DinoNotes About Info";
+        }
+
     }
 }
