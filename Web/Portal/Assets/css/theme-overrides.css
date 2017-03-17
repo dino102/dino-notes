@@ -3,7 +3,7 @@
 }
 
 .footer {
-  padding: 20px 15px 0 10px;
+  padding: 15px 15px 0 10px;
   font-size: 12px;
   border: none !important;
 }
@@ -11,7 +11,7 @@
 .note-box {
   background: #fff;
   margin: 80px 25px 5px 25px;
-  height: calc(100% - 150px);
+  height: calc(100% - 140px);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
   border-radius: 3px;
   padding: 20px
