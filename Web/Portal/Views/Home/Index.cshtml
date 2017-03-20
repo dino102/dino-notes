@@ -3,7 +3,30 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="note-box">
-    <textarea class="note-textarea"></textarea>
+@using DinoNotes.Web.Portal.Helpers
+@using SquishIt.Framework
+@using SquishIt.Mvc
+
+<div class="main-panel" ng-controller="HomeController as controller" ng-init="controller.init()">
+    @Html.Partial("ActionBar")
+    @*@RenderPage("ActionBar.cshtml")*@
+    <div id="note-box">
+        <textarea id="note-textarea">{{ controller.note.info.content }}</textarea>
+    </div>
+    @Html.Partial("Footer")
 </div>
 
+@section scripts {
+    @(Bundle.JavaScript()
+        .AddMinified("~/Assets/libs/jquery/jquery-3.1.0.min.js")
+        .AddMinified("~/Assets/libs/bootstrap/js/bootstrap.min.js")
+        .AddMinified("~/Assets/libs/material/material.min.js")
+        .AddMinified("~/Assets/libs/angularjs/angular.min.js")
+        .AddMinified("~/Assets/libs/angularjs/angular-cookies.min.js")
+        .Add("~/Assets/js/common/material-dashboard.js")
+        .AddString(JavascriptHelper.GenerateJsConfig())
+        .Add("~/Assets/js/common/angular-header.js")
+        .Add("~/Assets/js/common/utilities.js")
+        .Add("~/Assets/js/pages/home-index.js")
+        .MvcRender("~/Assets/all-min-#.js"))
+}
