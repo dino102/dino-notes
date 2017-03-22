@@ -1,7 +1,7 @@
-﻿<div class="sidebar-wrapper" ng-controller="SideBarController as controller" ng-init="controller.init()">
+﻿<div class="sidebar-wrapper">
     <ul class="nav">
-        <li ng-repeat="note in controller.notes.list">
-            <a href="dashboard.html">
+        <li ng-repeat="note in controller.sidebar.notes">
+            <a href="" ng-click="controller.sidebar.select(note.Id)">
                 <i class="material-icons">{{ note.IsPinned ? 'description' : 'insert_drive_file'}}</i>
                 <p>{{ note.Title }}</p>
             </a>

@@ -21,8 +21,11 @@
     .MvcRender("~/Assets/all-min-#.css"))
 </head>
 <body ng-app="page">
+    <div id="loader" style="display: none">
+        <div id="loader-spinner"><i class="fa fa-spinner fa-spin"></i></div>
+    </div>
 
-    <div class="wrapper">
+    <div class="wrapper" ng-controller="HomeController as controller" ng-init="controller.init()">
         <div class="sidebar" data-color="purple" data-image="../assets/img/sidebar-1.jpg">
             <div class="logo">
                 <a href="/" class="simple-text">DINO NOTES<sub style="font-size: 8px;">&nbsp;&nbsp;TM</sub></a>

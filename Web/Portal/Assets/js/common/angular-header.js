@@ -39,14 +39,3 @@ page.factory('HttpInterceptor', ['$q', '$cookies', '$window', 'utilities', funct
 page.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('HttpInterceptor');
 }]);
-
-// filter to format json date values
-page.filter('formatDate', ['$filter', function ($filter) {
-    return function (item) {
-        if (item != null) {
-            var parsedDate = new Date(item);
-            return $filter('date')(parsedDate, 'yyyy-MM-dd hh:mm a');
-        }
-        return "";
-    };
-}]);

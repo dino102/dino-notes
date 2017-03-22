@@ -7,9 +7,8 @@
 @using SquishIt.Framework
 @using SquishIt.Mvc
 
-<div class="main-panel" ng-controller="HomeController as controller" ng-init="controller.init()">
+<div class="main-panel">
     @Html.Partial("ActionBar")
-    @*@RenderPage("ActionBar.cshtml")*@
     <div id="note-box">
         <textarea id="note-textarea">{{ controller.note.info.content }}</textarea>
     </div>
@@ -20,6 +19,7 @@
     @(Bundle.JavaScript()
         .AddMinified("~/Assets/libs/jquery/jquery-3.1.0.min.js")
         .AddMinified("~/Assets/libs/bootstrap/js/bootstrap.min.js")
+        .AddMinified("~/Assets/libs/bootstrap-bootbox/bootbox.min.js")
         .AddMinified("~/Assets/libs/material/material.min.js")
         .AddMinified("~/Assets/libs/angularjs/angular.min.js")
         .AddMinified("~/Assets/libs/angularjs/angular-cookies.min.js")

@@ -10,26 +10,26 @@
             </button>
 
             <a class="navbar-brand" href="#">{{ controller.note.info.title }}</a>
-            <div id="action-status" class="">: <small>{{ controller.note.info.dateUpdated | formatDate : 'yyyy-MM-dd hh:mm' }}</small></div>
+            <div id="action-status" class=""><small>{{ controller.note.info.dateUpdated | date : ': dd MMM yyyy hh:mm a' }}</small></div>
             @*<div id="action-status" class="text-danger"><small>Saving..</small></div>*@
         </div>
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#a" class="dropdown-toggle">
+                    <a href="" class="dropdown-toggle" ng-click="controller.note.add()">
                         <i class="material-icons">note_add</i>
                         <p class="hidden-lg hidden-md">New Note</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#a" class="dropdown-toggle">
+                    <a href="" class="dropdown-toggle" ng-click="controller.note.save()">
                         <i class="material-icons">save</i>
                         <p class="hidden-lg hidden-md">Save</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#settings" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="material-icons">settings</i>
                         <p class="hidden-lg hidden-md">Options</p>
                     </a>
@@ -39,7 +39,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#profile" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="material-icons">person</i>
                         <p class="hidden-lg hidden-md">Profile</p>
                     </a>
