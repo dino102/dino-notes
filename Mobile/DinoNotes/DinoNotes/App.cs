@@ -9,12 +9,12 @@ using DinoNotes.Utilities;
 namespace DinoNotes {
     public class App : Application {
         public App() {
-            var isLoggedIn = Properties.ContainsKey(Constants.ISLOGGEDIN) && (bool)Properties[Constants.ISLOGGEDIN];
-            if (isLoggedIn) {
+            if (Globals.IsLoggedIn) {
                 MainPage = new Views.RootView();
             } else {
                 MainPage = new Views.LoginView();
             }
+            //MainPage = new Views.RootView();
         }
 
         protected override void OnStart() {
@@ -28,9 +28,6 @@ namespace DinoNotes {
             //    var userRepo = new UsersRepository();
             //    userRepo.Insert(new User { Username = "admin", Password = "a", Email = "admin@rational.com.sg", FirstName = "Admin", LastName = "Admin" });
             //    userRepo.Insert(new User { Username = "dino", Password = "p", Email = "apelagio@rational.com.sg", FirstName = "Dino", LastName = "Pelagio" });
-            //    userRepo.Insert(new User { Username = "paolo", Password = "b", Email = "pbriones@rational.com.sg", FirstName = "Paolo", LastName = "Briones" });
-            //    userRepo.Insert(new User { Username = "jon", Password = "l", Email = "jlimjap@rational.com.sg", FirstName = "Jon", LastName = "Limjap" });
-            //    userRepo.Insert(new User { Username = "mike", Password = "f", Email = "mfelina@rational.com.sg", FirstName = "Mike", LastName = "Felina" });
 
             //    // Settings table
             //    var settingRepo = new SettingsRepository();

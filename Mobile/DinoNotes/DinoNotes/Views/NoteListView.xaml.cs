@@ -13,7 +13,11 @@ namespace DinoNotes.Views {
     public partial class NoteListView : ContentPage {
         public NoteListView() {
             InitializeComponent();
-            BindingContext = new NoteListViewModel();
+            BindingContext = new NoteListViewModel(this);
+        }
+
+        protected override void OnAppearing() {
+            lvNotes.SelectedItem = null;
         }
     }
 }

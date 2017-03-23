@@ -10,7 +10,7 @@ namespace DinoNotes.Utilities {
         public static bool IsLoggedIn {
             get {
                 object result;
-                Application.Current.Properties.TryGetValue(Constants.ACTIVEUSERNAME, out result);
+                Application.Current.Properties.TryGetValue(Constants.ISLOGGEDIN, out result);
                 return result != null ? bool.Parse(result.ToString()) : false;
             }
             set {

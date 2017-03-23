@@ -1,10 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DinoNotes.Views.NoteItemView">
+             x:Class="DinoNotes.Views.NoteItemView"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="ToolBarMenuSave"
+                     Order="Primary"
+                     Icon="toolbar_ic_action_save.png"
+                     Text="Save"
+                     Priority="1"
+                     Command="{Binding SaveCommand}" />
+        <ToolbarItem Name="ToolBarMenuDelete"
+                     Order="Primary"
+                     Icon="toolbar_ic_action_trash.png"
+                     Text="Delete"
+                     Priority="0"
+                     Command="{Binding DeleteCommand}" />
+    </ContentPage.ToolbarItems>
 
-    <Label Text="Note item!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
+    <Editor Text="{Binding Content}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand" />
+
+    <!--<ActivityIndicator Color="Red"
+                       IsRunning="{Binding IsBusy}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />-->
 
 </ContentPage>

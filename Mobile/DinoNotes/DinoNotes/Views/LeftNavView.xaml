@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DinoNotes.Views.LeftNavView"
+             BackgroundColor="#303030"
              Title="Dino Notes (TM)">
 
     <ScrollView>
         <StackLayout Padding="0, 10, 0, 20">
             <!-- Header Section -->
             <StackLayout Margin="20, 0, 0, 25">
-                <Label Text="SMRT WMS v1.0"
+                <Label Text="Dino Notes v1.0"
                        TextColor="White"
                        Margin="0, 5, 0, 15"
                        FontSize="16" />

@@ -2,13 +2,15 @@
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using DinoNotes.Utilities;
+using System.Threading.Tasks;
 
 namespace DinoNotes.ViewModels {
     public class LoginViewModel : INotifyPropertyChanged {
-
         public event PropertyChangedEventHandler PropertyChanged;
+        void OnPropertyChanged([CallerMemberName]string name = "") {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
-        // members
         private Page _page;
 
         // view properties
@@ -34,14 +36,10 @@ namespace DinoNotes.ViewModels {
             LoginCommand = new Command(Login, () => !IsBusy);
         }
 
-        void OnPropertyChanged([CallerMemberName]string name = "") {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
         private async void Login() {
-            //IsBusy = true;
+            IsBusy = true;
 
-            //await Task.Delay(1000); // delay for a sec
+            await Task.Delay(1000); // delay for a sec
             if (Password == "1234") {
 
                 Globals.IsLoggedIn = true;
@@ -78,7 +76,7 @@ namespace DinoNotes.ViewModels {
             //    await Application.Current.MainPage.DisplayAlert("Login", "Invalid username or password.", "OK");
             //}
 
-            //IsBusy = false;
+            IsBusy = false;
         }
     }
 }

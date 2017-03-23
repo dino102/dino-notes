@@ -36,7 +36,7 @@ namespace DinoNotes.Views {
                             // Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetPage));
                             IsPresented = true;
                             break;
-                        case "LOG OUT":
+                        case "LOCK":
                             Application.Current.Properties[Constants.ISLOGGEDIN] = false;
 
                             // load the Root page

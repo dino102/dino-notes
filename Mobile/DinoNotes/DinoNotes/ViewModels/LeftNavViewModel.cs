@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Xamarin.Forms;
 using DinoNotes.Utilities;
 using DinoNotes.Models;
 using DinoNotes.Views;
@@ -78,13 +77,13 @@ namespace DinoNotes.ViewModels {
 
             // initialize menu items
             LeftNavMenuItems = new ObservableCollection<LeftNavMenuItem> {
-                new LeftNavMenuItem { Title = "Notes", Icon = "", TargetPage = typeof(NoteListView) },
-                new LeftNavMenuItem { Title = "Tags", Icon = "", TargetPage = typeof(NoteListView) },
+                new LeftNavMenuItem { Title = "Notes", Icon = "nav_ic_action_list_2.png", TargetPage = typeof(NoteListView) },
+                new LeftNavMenuItem { Title = "Tags", Icon = "nav_ic_action_trash.png", TargetPage = typeof(NoteListView) },
             };
 
             LeftSystemOptionsItems = new ObservableCollection<LeftNavMenuItem> {
-                new LeftNavMenuItem { Title = "Settings", Icon = "", TargetPage = typeof(NoteListView) },
-                new LeftNavMenuItem { Title = "Log Out", Icon = "", TargetPage = null}
+                new LeftNavMenuItem { Title = "Settings", Icon = "nav_ic_action_gear.png", TargetPage = typeof(NoteListView) },
+                new LeftNavMenuItem { Title = "Lock", Icon = "nav_ic_action_lock_closed.png", TargetPage = null }
             };
         }
 
