@@ -18,13 +18,16 @@
                      Command="{Binding DeleteCommand}" />
     </ContentPage.ToolbarItems>
 
-    <Editor Text="{Binding Content}"
-            VerticalOptions="FillAndExpand"
-            HorizontalOptions="FillAndExpand" />
-
-    <!--<ActivityIndicator Color="Red"
-                       IsRunning="{Binding IsBusy}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center" />-->
+    <Grid VerticalOptions="FillAndExpand"
+          HorizontalOptions="FillAndExpand">
+        <Editor Text="{Binding Content}"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand" />
+        <ActivityIndicator Color="Red" 
+                           IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+    </Grid>
 
 </ContentPage>

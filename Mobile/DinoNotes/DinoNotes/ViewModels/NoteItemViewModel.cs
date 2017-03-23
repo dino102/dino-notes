@@ -54,6 +54,11 @@ namespace DinoNotes.ViewModels {
 
         public async void Save() {
             IsBusy = true;
+
+
+
+
+
             await Task.Delay(1000);
             await _page.DisplayAlert("Dino Notes", "Saved!", "OKAY");
             IsBusy = false;
