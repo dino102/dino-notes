@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DinoNotes.Views.LoginView">
+    <ScrollView>
+        <StackLayout Spacing="20"
+                     Padding="50, 0, 50, 150"
+                     VerticalOptions="Center">
+            <Image Source="smrt_app_logo.png"
+                   HeightRequest="200"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFit"></Image>
+            <Entry Placeholder="Username"
+                   Text="{Binding Username}" />
+            <Entry Placeholder="Password"
+                   Text="{Binding Password}"
+                   IsPassword="true" />
+            <Button Text="Login"
+                    TextColor="White"
+                    BackgroundColor="#FF8F00"
+                    Command="{Binding LoginCommand}" />
+            <ActivityIndicator IsRunning="{Binding IsBusy}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
