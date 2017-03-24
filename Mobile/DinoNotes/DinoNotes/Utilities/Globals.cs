@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace DinoNotes.Utilities {
@@ -11,7 +7,7 @@ namespace DinoNotes.Utilities {
             get {
                 object result;
                 Application.Current.Properties.TryGetValue(Constants.ISLOGGEDIN, out result);
-                return result != null ? bool.Parse(result.ToString()) : false;
+                return result != null ? (bool)result : false;
             }
             set {
                 Application.Current.Properties[Constants.ISLOGGEDIN] = value;

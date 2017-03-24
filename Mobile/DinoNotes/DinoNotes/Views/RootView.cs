@@ -34,20 +34,21 @@ namespace DinoNotes.Views {
 
                             // load the selected item as Detail page
                             // Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetPage));
-                            IsPresented = true;
                             break;
-                        case "LOCK":
-                            Application.Current.Properties[Constants.ISLOGGEDIN] = false;
+                        case "LOG OUT":
+                            Globals.IsLoggedIn = false;
 
                             // load the Root page
-                            Navigation.PushModalAsync(new LoginView());
+                            Application.Current.MainPage = new LoginView();
+                            //Navigation.PushModalAsync(new LoginView());
 
-                            // prevents Android devices from using the back button
-                            if (Device.OS == TargetPlatform.Android) {
-                                Application.Current.MainPage = new LoginView();
-                            }
+                            //// prevents Android devices from using the back button
+                            //if (Device.OS == TargetPlatform.Android) {
+                            //    Application.Current.MainPage = new LoginView();
+                            //}
                             break;
                     }
+                    IsPresented = false;
                     leftNavView.LeftSystemOptionsList.SelectedItem = null; // de-select active item
                 }
             };

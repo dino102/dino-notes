@@ -83,7 +83,7 @@ namespace DinoNotes.ViewModels {
 
             LeftSystemOptionsItems = new ObservableCollection<LeftNavMenuItem> {
                 new LeftNavMenuItem { Title = "Settings", Icon = "nav_ic_action_gear.png", TargetPage = typeof(NoteListView) },
-                new LeftNavMenuItem { Title = "Lock", Icon = "nav_ic_action_lock_closed.png", TargetPage = null }
+                new LeftNavMenuItem { Title = "Log out", Icon = "nav_ic_action_lock_closed.png", TargetPage = null }
             };
         }
 

@@ -5,7 +5,7 @@ using DinoNotes.Utilities;
 using System.Threading.Tasks;
 
 namespace DinoNotes.ViewModels {
-    public class LoginViewModel : INotifyPropertyChanged {
+    public class LockViewModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         void OnPropertyChanged([CallerMemberName]string name = "") {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -14,8 +14,7 @@ namespace DinoNotes.ViewModels {
         private Page _page;
 
         // view properties
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string PassCode { get; set; }
 
         private bool _isBusy;
         public bool IsBusy {
@@ -23,32 +22,29 @@ namespace DinoNotes.ViewModels {
             set {
                 _isBusy = value;
                 OnPropertyChanged(nameof(IsBusy));
-                LoginCommand.ChangeCanExecute();
+                UnlockCommand.ChangeCanExecute();
             }
         }
 
         // view methods
-        public Command LoginCommand { get; }
+        public Command UnlockCommand { get; }
 
         // constructor
-        public LoginViewModel(Page page) {
+        public LockViewModel(Page page) {
             this._page = page;
-            LoginCommand = new Command(Login, () => !IsBusy);
+            UnlockCommand = new Command(Unlock, () => !IsBusy);
         }
 
-        private async void Login() {
+        private async void Unlock() {
             IsBusy = true;
 
             await Task.Delay(1000); // delay for a sec
-            if (Username == "d" && Password == "p") {
-
-                Globals.IsLoggedIn = true;
-                Globals.ActiveUsername = "Dino Pelagio";
-                Globals.ActiveUserEmail = "dino102@gmail.com";
+            if (PassCode == "1234") {
 
                 Application.Current.MainPage = new Views.RootView();
+
             } else {
-                await Application.Current.MainPage.DisplayAlert("Login", "Invalid username or password.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Lock", "Invalid pin or code.", "OK");
             }
 
             IsBusy = false;

@@ -45,12 +45,16 @@
     <Compile Include="Utilities\Constants.cs" />
     <Compile Include="Utilities\Globals.cs" />
     <Compile Include="ViewModels\LeftNavViewModel.cs" />
+    <Compile Include="ViewModels\LockViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NoteItemViewModel.cs" />
     <Compile Include="ViewModels\NoteListViewModel.cs" />
     <Compile Include="ViewModels\RootViewModel.cs" />
     <Compile Include="Views\LeftNavView.xaml.cs">
       <DependentUpon>LeftNavView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LockView.xaml.cs">
+      <DependentUpon>LockView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -103,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\NoteListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LockView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

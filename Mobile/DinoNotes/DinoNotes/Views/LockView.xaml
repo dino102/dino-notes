@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DinoNotes.Views.LoginView"
+             x:Class="DinoNotes.Views.LockView"
              Title="">
     <ScrollView>
         <StackLayout Spacing="20"
-                     Padding="80, 40, 80, 0" 
+                     Padding="100, 80, 100, 0" 
                      VerticalOptions="Center">
             <Image Source="dino_notes_logo.png"
                    HeightRequest="150"
@@ -13,21 +13,20 @@
                    Aspect="AspectFit"></Image>
             <StackLayout Orientation="Vertical"
                          Padding="0, 30, 0, 0">
-                <Label Text="User Email"></Label>
+                <Label Text="Enter pin code" 
+                       HorizontalTextAlignment="Center"
+                       FontSize="20"></Label>
                 <Entry Placeholder=""
-                       Text="{Binding Username}"
+                       Text="{Binding PassCode}"
                        IsPassword="true"
-                       HorizontalOptions="FillAndExpand" />
-                <Label Text="Password"></Label>
-                <Entry Placeholder=""
-                       Text="{Binding Password}"
-                       IsPassword="true"
+                       Keyboard="Numeric"
+                       HorizontalTextAlignment="Center"
                        HorizontalOptions="FillAndExpand"/>
             </StackLayout>
-            <Button Text="Login"
+            <Button Text="Unlock"
                     TextColor="White"
                     BackgroundColor="#3596E1"
-                    Command="{Binding LoginCommand}" />
+                    Command="{Binding UnlockCommand}" />
             <ActivityIndicator IsRunning="{Binding IsBusy}" />
         </StackLayout>
     </ScrollView>
