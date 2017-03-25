@@ -2,10 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DinoNotes.Views.NoteListView"
-             Title="Dino Notes (TM)">
+             Title="Dino Notes">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="ToolBarMenuSearch"
+                     Order="Primary"
+                     Icon="toolbar_ic_action_search.png"
+                     Text="Search"
+                     Priority="0"
+                     Command="{Binding SearchCommand}" />
+        <ToolbarItem Name="ToolBarMenuAdd"
+                     Order="Primary"
+                     Icon="toolbar_ic_action_add.png"
+                     Text="Add"
+                     Priority="1"
+                     Command="{Binding AddCommand}" />
+    </ContentPage.ToolbarItems>
+    
     <ScrollView>
         <StackLayout VerticalOptions="Start"
                      Padding="0">
+            
+            <SearchBar x:Name="sbFilter"
+                       Placeholder="Search notes"
+                       Text="{Binding SearchFilter}"
+                       FontSize="14"
+                       PlaceholderColor="#BFBFBF" />
 
             <ListView x:Name="lvNotes"
                       ItemsSource="{Binding NoteList}"
@@ -23,8 +44,6 @@
                                        FontAttributes="Bold"></Label>
                                 <Image Source="{Binding Image}"
                                        HorizontalOptions="EndAndExpand"></Image>
-                                <!--<Label Text="{Binding Content}"
-                                       TextColor="#696969"></Label>-->
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

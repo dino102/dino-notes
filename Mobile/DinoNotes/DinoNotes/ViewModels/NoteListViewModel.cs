@@ -2,8 +2,12 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using DinoNotes.Models;
+using System.Collections.Generic;
 using Xamarin.Forms;
+using DinoNotes.Models;
+using static DinoNotes.Utilities.Extensions;
+
+
 
 namespace DinoNotes.ViewModels {
     public class NoteListViewModel : INotifyPropertyChanged {
@@ -26,7 +30,11 @@ namespace DinoNotes.ViewModels {
         public NoteListViewModel(Page page) {
             _page = page;
 
-            ObservableCollection<NoteInfo> notes = new ObservableCollection<NoteInfo> {
+            LoadList(string.Empty);
+        }
+
+        private void LoadList(string searchFilter) {
+            List<NoteInfo> notes = new List<NoteInfo> {
                 new NoteInfo {
                     Uid = Guid.NewGuid().ToString(),
                     Title = "Note One",
@@ -39,7 +47,7 @@ namespace DinoNotes.ViewModels {
                 new NoteInfo {
                     Uid = Guid.NewGuid().ToString(),
                     Title = "Note Two",
-                    Content = "The quick brown fox jumps over the lazy dog",
+                    Content = "The quick brown fox jumps over the lazy dog. my filter",
                     DateUpdated = DateTime.Now,
                     IsPinned = true,
                     Image = "ic_action_tag.png",
@@ -56,7 +64,11 @@ namespace DinoNotes.ViewModels {
                 }
             };
 
-            this.NoteList = notes;
+            if (searchFilter == string.Empty) {
+                this.NoteList = notes.ToObservableCollection();
+            } else {
+                this.NoteList = notes.FindAll(x => x.Content.Contains(searchFilter)).ToObservableCollection();
+            }
         }
 
         private NoteInfo _selectedItem = new NoteInfo();
@@ -78,6 +90,19 @@ namespace DinoNotes.ViewModels {
         public async void NavigateToNoteItemView(NoteInfo noteInfo) {
             await _page.Navigation.PushAsync(new Views.NoteItemView(noteInfo));
         }
+
+        private string _searchFilter;
+        public string SearchFilter {
+            get { return _searchFilter; }
+            set {
+                _searchFilter = value;
+                OnPropertyChanged(nameof(_searchFilter));
+
+                LoadList(_searchFilter);
+            }
+        }
+
+        
 
     }
 }

@@ -2218,14 +2218,23 @@ namespace DinoNotes.Droid
 			// aapt resource value: 0x7f0200a6
 			public const int nav_ic_action_trash = 2130837670;
 			
-			// aapt resource value: 0x7f0200a9
-			public const int notification_template_icon_bg = 2130837673;
+			// aapt resource value: 0x7f0200ac
+			public const int notification_template_icon_bg = 2130837676;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int toolbar_ic_action_save = 2130837671;
+			public const int toolbar_ic_action_add = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int toolbar_ic_action_trash = 2130837672;
+			public const int toolbar_ic_action_save = 2130837672;
+			
+			// aapt resource value: 0x7f0200a9
+			public const int toolbar_ic_action_search = 2130837673;
+			
+			// aapt resource value: 0x7f0200aa
+			public const int toolbar_ic_action_tag = 2130837674;
+			
+			// aapt resource value: 0x7f0200ab
+			public const int toolbar_ic_action_trash = 2130837675;
 			
 			static Drawable()
 			{
